@@ -1,4 +1,4 @@
-# CT4315 Object Oriented Programming
-##Contributors
- -Nathan Braun
- -Peter Fedor
+# ICT4315 Object Oriented Programming
+## Contributors
+- Nathan Braun
+- Peter Fedor
