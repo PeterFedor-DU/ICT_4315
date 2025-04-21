@@ -9,7 +9,7 @@ public class ParkingLot {
     private Address address;
     private int capacity;
     private List<Car> parkedCars; 
-    private ParkingCharge pricingStrat;
+    private StrategyInterface pricingStrat;
     private Money baseRate;
 
     public ParkingLot(String lotId, Address address, int capacity) {
