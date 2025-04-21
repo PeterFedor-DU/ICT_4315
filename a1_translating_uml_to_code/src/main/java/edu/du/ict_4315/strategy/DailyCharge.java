@@ -2,7 +2,7 @@
 package edu.du.ict_4315.strategy;
 import java.time.LocalDateTime;
 
-public class FlatRateWithVehicleTypeDiscount implements ParkingChargeStrategy {
+public class DailyCharge implements ParkingChargeStrategy {
 
     private static final double Compact_Discount = 0.20;
 
