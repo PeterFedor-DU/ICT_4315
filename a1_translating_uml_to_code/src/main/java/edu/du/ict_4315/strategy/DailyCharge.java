@@ -4,13 +4,13 @@ import java.time.LocalDateTime;
 
 public class FlatRateWithVehicleTypeDiscount implements ParkingChargeStrategy {
 
-    private static final double COMPACT_DISCOUNT = 0.20;
+    private static final double Compact_Discount = 0.20;
 
     @Override
     public Money calculateCharge(ParkingPermit permit, LocalDateTime entryTime, LocalDateTime exitTime, Money baseRate) {
         Car car = permit.getCar();
         if (car.getType() == CarType.COMPACT) {
-            return baseRate.multiply(1.0 - COMPACT_DISCOUNT);
+            return baseRate.multiply(1.0 - Compact_Discount);
         } else {
             return baseRate;
         }
