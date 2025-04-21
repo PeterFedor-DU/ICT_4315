@@ -5,27 +5,27 @@ import java.time.DayOfWeek;
 
 public class TimeAndDayBasedSurcharge implements ParkingChargeStrategy {
 
-    private static final double WEEKEND_SURCHARGE = 0.25;
-    private static final double PRIME_TIME_SURCHARGE = 0.15;
-    private static final int PRIME_START_HOUR = 7;  // 7 AM
-    private static final int PRIME_END_HOUR = 10;   // 10 AM
+    private static final double Weekend_Charge = 0.25;
+    private static final double Workhour_Charge = 0.15;
+    private static final int Workhour_Start = 9;  
+    private static final int Workhour_End = 5;   
 
     @Override
     public Money calculateCharge(ParkingPermit permit, LocalDateTime entryTime, LocalDateTime exitTime, Money baseRate) {
-        double surchargeMultiplier = 1.0;
+        double chargeMultiplier = 1.0;
 
-        // Weekend surcharge
+///Weekend charge calc
         DayOfWeek day = entryTime.getDayOfWeek();
         if (day == DayOfWeek.SATURDAY || day == DayOfWeek.SUNDAY) {
-            surchargeMultiplier += WEEKEND_SURCHARGE;
+            surchargeMultiplier += Weekend_Charge;
         }
 
-        // Prime time surcharge (e.g., during rush hour)
+///Work hour charge calc
         int hour = entryTime.getHour();
-        if (hour >= PRIME_START_HOUR && hour < PRIME_END_HOUR) {
-            surchargeMultiplier += PRIME_TIME_SURCHARGE;
+        if (hour >= Workhour_Start && hour < Workhour_End) {
+            surchargeMultiplier += WorkhourCharge;
         }
 
-        return baseRate.multiply(surchargeMultiplier);
+        return baseRate.multiply(chargeMultiplier);
     }
 }
