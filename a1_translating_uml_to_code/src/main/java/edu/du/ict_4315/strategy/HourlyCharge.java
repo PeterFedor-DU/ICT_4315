@@ -3,7 +3,7 @@ package edu.du.ict_4315.strategy;
 import java.time.LocalDateTime;
 import java.time.DayOfWeek;
 
-public class TimeAndDayBasedSurcharge implements ParkingChargeStrategy {
+public class HourlyCharge implements ParkingChargeStrategy {
 
     private static final double Weekend_Charge = 0.25;
     private static final double Workhour_Charge = 0.15;
