@@ -43,11 +43,11 @@ public class ParkingLot {
         
 
 
- public ParkingChargeStrategy getPricingStrat() {
+ public StrategyInterface getPricingStrat() {
         return pricingStrat;
     }
 
-    public void setPricingStrategy(ParkingChargeStrategy pricingStrat) {
+    public void setPricingStrat(StrategyInterface pricingStrat) {
         this.pricingStrat = pricingStrat;
     }
 
