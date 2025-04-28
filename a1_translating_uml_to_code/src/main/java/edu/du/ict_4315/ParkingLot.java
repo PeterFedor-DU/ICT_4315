@@ -1,5 +1,4 @@
-package edu.du.ict_4315
-
+package edu.du.ict_4315;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,18 +8,17 @@ public class ParkingLot {
     private Address address;
     private int capacity;
     private List<Car> parkedCars; 
-    private StrategyInterface pricingStrat;
+    private ParkingChargeStrategy pricingStrat;  // Updated to use the correct strategy interface
     private Money baseRate;
 
-    public ParkingLot(String lotId, Address address, int capacity) {
+    public ParkingLot(String lotId, Address address, int capacity, ParkingChargeStrategy pricingStrat, Money baseRate) {
         this.lotId = lotId;
         this.address = address;
         this.capacity = capacity;
         this.parkedCars = new ArrayList<>();
-	this.pricingStrat = pricingStrat;
+        this.pricingStrat = pricingStrat;
         this.baseRate = baseRate;
     }
-
 
     public void entry(Car car) {
         if (parkedCars.size() < capacity) {
@@ -31,23 +29,20 @@ public class ParkingLot {
         }
     }
 
-
     public void exit(Car car) {
         if (parkedCars.contains(car)) {
             parkedCars.remove(car);
             System.out.println("Car has exited: " + car);
         } else {
             System.out.println("This car is not in the parking lot");
-            }
         }
-        
+    }
 
-
- public StrategyInterface getPricingStrat() {
+    public ParkingChargeStrategy getPricingStrat() {
         return pricingStrat;
     }
 
-    public void setPricingStrat(StrategyInterface pricingStrat) {
+    public void setPricingStrat(ParkingChargeStrategy pricingStrat) {
         this.pricingStrat = pricingStrat;
     }
 
@@ -62,5 +57,4 @@ public class ParkingLot {
     public String toString() {
         return "ParkingLot [ID=" + lotId + ", Address=" + address.getAddressInfo() + ", Capacity=" + capacity + "]";
     }
-	
 }
