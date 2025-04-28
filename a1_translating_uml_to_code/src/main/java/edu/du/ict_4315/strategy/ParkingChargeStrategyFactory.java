@@ -1,12 +1,14 @@
+package edu.du.ict_4315.strategy;
+
 public class ParkingChargeStrategyFactory {
 
-    public static StrategyInterface getStrategy(ParkingLot lot) {
-        if (lot.isSpecialEvent()) {
-            return new FlatRateStrategy();
-        } else if (lot.isWeekend()) {
-            return new WeekendDiscountStrategy();
-        } else {
-            return new HourlyRateStrategy();
+    public static ParkingChargeStrategy getStrategy(ParkingLot lot) {
+///Seeing if the lot has a strategy set
+        if (lot.getPricingStrat() != null) {
+            return lot.getPricingStrat();
         }
+
+///Setting hourly charge as the default if nothing is returned
+        return new HourlyCharge();
     }
 }
