@@ -2,14 +2,17 @@ package edu.du.ict_4315;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.time.LocalDateTime;
 
 public class ParkingLot {
     private String lotId;
     private Address address;
     private int capacity;
-    private List<Car> parkedCars; 
-    private ParkingChargeStrategy pricingStrat;  // Updated to use the correct strategy interface
+    private List<Car> parkedCars;
+    private ParkingChargeStrategy pricingStrat;
     private Money baseRate;
+
+    private List<ParkingObserver> observers;
 
     public ParkingLot(String lotId, Address address, int capacity, ParkingChargeStrategy pricingStrat, Money baseRate) {
         this.lotId = lotId;
@@ -18,6 +21,8 @@ public class ParkingLot {
         this.parkedCars = new ArrayList<>();
         this.pricingStrat = pricingStrat;
         this.baseRate = baseRate;
+
+        this.observers = new ArrayList<>();
     }
 
     public void entry(Car car) {
@@ -33,8 +38,26 @@ public class ParkingLot {
         if (parkedCars.contains(car)) {
             parkedCars.remove(car);
             System.out.println("Car has exited: " + car);
+
+
+            notifyObservers(new ParkingEvent(LocalDateTime.now(), car.getPermit(), this));
         } else {
             System.out.println("This car is not in the parking lot");
+        }
+    }
+
+
+    public void addObserver(ParkingObserver observer) {
+        observers.add(observer);
+    }
+
+    public void removeObserver(ParkingObserver observer) {
+        observers.remove(observer);
+    }
+
+    private void notifyObservers(ParkingEvent event) {
+        for (ParkingObserver observer : observers) {
+            observer.handleParkingEvent(event);
         }
     }
 
