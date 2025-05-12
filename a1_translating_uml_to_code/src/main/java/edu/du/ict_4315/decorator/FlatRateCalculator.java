@@ -1,4 +1,4 @@
-package edu.du.ict4315.charges.decorator;
+package edu.du.ict4315.decorator;
 
 import java.time.LocalDateTime;
 import edu.du.ict4315.parking.ParkingLot;
