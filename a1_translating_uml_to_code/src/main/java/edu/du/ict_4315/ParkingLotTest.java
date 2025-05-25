@@ -1,4 +1,4 @@
-package edu.du.ict_4315
+package edu.du.ict_4315;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
