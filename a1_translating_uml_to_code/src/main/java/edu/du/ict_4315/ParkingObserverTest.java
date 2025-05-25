@@ -17,7 +17,7 @@ public class ParkingLotObserverTest {
 
     @BeforeEach
     public void setup() {
-        Address address = new Address("1111 Asbury St, "Denver", "CO", "80210");
+        Address address = new Address("1111 Asbury St", "Denver", "CO", "80210");
         Money baseRate = new Money(10.00);
         ParkingChargeStrategy strategy = new DailyCharge(); 
 
