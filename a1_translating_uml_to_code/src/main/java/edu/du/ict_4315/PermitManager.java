@@ -1,4 +1,4 @@
-package edu.du.ict_4315
+package edu.du.ict_4315;
 
 import java.util.ArrayList;
 import java.util.HashMap;
