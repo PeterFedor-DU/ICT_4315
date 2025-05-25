@@ -1,4 +1,4 @@
-package edu.du.ict_4315
+package edu.du.ict_4315;
 
 ///Creating a class for the customer address
 public class Address {
