@@ -25,4 +25,4 @@ public class CompactCarDiscountDecoratorTest {
         assertEquals(new Money(8.00), charge);
     }
 
-  
+}
