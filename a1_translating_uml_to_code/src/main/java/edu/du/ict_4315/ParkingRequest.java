@@ -1,55 +1,38 @@
 package edu.du.ict_4315;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
-import java.util.Properties;
+public class ParkingResponse {
+    private int statusCode;
+    private String message;
 
-public class ParkingRequest {
-    private String commandName;
-    private Properties parameters;
-
-    // Default constructor required for Gson
-    public ParkingRequest() {
-        this.parameters = new Properties();
+    public ParkingResponse(int statusCode, String message) {
+        this.statusCode = statusCode;
+        this.message = message;
     }
 
-    public ParkingRequest(String commandName, Properties parameters) {
-        this.commandName = commandName;
-        this.parameters = parameters;
+    public int getStatusCode() {
+        return statusCode;
     }
 
-    public String getCommandName() {
-        return commandName;
-    }
-
-    public void setCommandName(String commandName) {
-        this.commandName = commandName;
-    }
-
-    public Properties getParameters() {
-        return parameters;
-    }
-
-    public void setParameters(Properties parameters) {
-        this.parameters = parameters;
-    }
-
-    public String toJson() {
-        Gson gson = new GsonBuilder().create();
-        return gson.toJson(this);
-    }
-
-    public static ParkingRequest fromJson(String json) {
-        Gson gson = new GsonBuilder().create();
-        return gson.fromJson(json, ParkingRequest.class);
+    public String getMessage() {
+        return message;
     }
 
     @Override
     public String toString() {
-        return "ParkingRequest{" +
-                "commandName='" + commandName + '\'' +
-                ", parameters=" + parameters +
-                '}';
+        return "ParkingResponse{statusCode=" + statusCode + ", message='" + message + "'}";
+    }
+
+    // Convert this object to JSON string
+    public String toJson() {
+        Gson gson = new Gson();
+        return gson.toJson(this);
+    }
+
+    // Convert JSON string to ParkingResponse object
+    public static ParkingResponse fromJson(String json) {
+        Gson gson = new Gson();
+        return gson.fromJson(json, ParkingResponse.class);
     }
 }
