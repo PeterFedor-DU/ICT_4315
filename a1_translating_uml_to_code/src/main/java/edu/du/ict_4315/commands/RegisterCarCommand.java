@@ -1,6 +1,6 @@
 package edu.du.ict_4315.commands;
 ///todo - update entire code to fit into github so imports are correctly defined
-import edu.du.ict_4315.*
+import edu.du.ict_4315.*;
 import java.util.Properties;
 ///Class for the command to register a car
 public class RegisterCarCommand implements Command {
