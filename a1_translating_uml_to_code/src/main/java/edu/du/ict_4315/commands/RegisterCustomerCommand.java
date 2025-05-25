@@ -1,6 +1,6 @@
 package edu.du.ict_4315.commands;
 
-import edu.du.ict_4315.*
+import edu.du.ict_4315.*;
 import java.util.Properties;
 
 public class RegisterCustomerCommand implements Command {
