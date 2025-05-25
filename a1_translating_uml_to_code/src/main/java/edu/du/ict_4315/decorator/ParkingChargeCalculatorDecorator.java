@@ -11,3 +11,4 @@ public abstract class ParkingChargeCalculatorDecorator extends ParkingChargeCalc
     public ParkingChargeCalculatorDecorator(ParkingChargeCalculator wrapped) {
         this.wrapped = wrapped;
     }
+}
