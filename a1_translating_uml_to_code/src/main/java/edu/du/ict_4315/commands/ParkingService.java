@@ -1,6 +1,6 @@
 package edu.du.ict_4315.commands;
 
-import edu.du.ict_4315.ParkingOffice
+import edu.du.ict_4315.ParkingOffice;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
