@@ -1,4 +1,4 @@
-package edu.du.ict_4315
+package edu.du.ict_4315;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
