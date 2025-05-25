@@ -1,27 +1,29 @@
 package edu.du.ict_4315;
 
+
 import com.google.gson.Gson;
+import java.util.Properties;
 
-public class ParkingResponse {
-    private int statusCode;
-    private String message;
+public class ParkingRequest {
+    private String commandName;
+    private Properties parameters;
 
-    public ParkingResponse(int statusCode, String message) {
-        this.statusCode = statusCode;
-        this.message = message;
+    public ParkingRequest(String commandName, Properties parameters) {
+        this.commandName = commandName;
+        this.parameters = parameters;
     }
 
-    public int getStatusCode() {
-        return statusCode;
+    public String getCommandName() {
+        return commandName;
     }
 
-    public String getMessage() {
-        return message;
+    public Properties getParameters() {
+        return parameters;
     }
 
     @Override
     public String toString() {
-        return "ParkingResponse{statusCode=" + statusCode + ", message='" + message + "'}";
+        return "ParkingRequest{commandName='" + commandName + "', parameters=" + parameters + '}';
     }
 
     // Convert this object to JSON string
@@ -30,9 +32,9 @@ public class ParkingResponse {
         return gson.toJson(this);
     }
 
-    // Convert JSON string to ParkingResponse object
-    public static ParkingResponse fromJson(String json) {
+    // Convert JSON string to ParkingRequest object
+    public static ParkingRequest fromJson(String json) {
         Gson gson = new Gson();
-        return gson.fromJson(json, ParkingResponse.class);
+        return gson.fromJson(json, ParkingRequest.class);
     }
 }
