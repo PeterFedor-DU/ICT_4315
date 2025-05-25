@@ -1,4 +1,4 @@
-package edu.du.ict_4315;
+package edu.du.ict_4315.strategy;
 
 public class ParkingChargeStrategyFactory {
 
